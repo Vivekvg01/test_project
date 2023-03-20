@@ -8,12 +8,14 @@ class CustomTextFeild extends StatelessWidget {
     required this.textController,
     required this.hintText,
     required this.prefixIcon,
+    required this.validateMessage,
     this.obscureText = false,
   }) : super(key: key);
 
   final TextEditingController textController;
   final String hintText;
   final Widget prefixIcon;
+  final String validateMessage;
   bool obscureText;
 
   @override
@@ -21,6 +23,12 @@ class CustomTextFeild extends StatelessWidget {
     return TextFormField(
       obscureText: obscureText,
       controller: textController,
+      validator: (val) {
+        if (val == null || val.isEmpty) {
+          return validateMessage;
+        }
+        return null;
+      },
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         hintText: hintText,

@@ -8,6 +8,8 @@ class SignupController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
+  var formKey = GlobalKey<FormState>();
+
   Future<void> onSignUpButtonClicked() async {
     SignUpServices().signUpUser(emailController.text, passwordController.text);
   }

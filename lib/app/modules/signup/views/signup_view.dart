@@ -13,47 +13,54 @@ class SignupView extends GetView<SignupController> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomTextFeild(
-                textController: controller.usernameController,
-                hintText: 'Username',
-                prefixIcon: const Icon(Icons.lock),
-              ),
-              const SizedBox(height: 15),
-              CustomTextFeild(
-                textController: controller.emailController,
-                hintText: 'Email',
-                prefixIcon: const Icon(Icons.email),
-              ),
-              const SizedBox(height: 15),
-              CustomTextFeild(
-                obscureText: true,
-                textController: controller.passwordController,
-                hintText: 'Password',
-                prefixIcon: const Icon(Icons.lock),
-              ),
-              const SizedBox(height: 15),
-              CustomTextFeild(
-                obscureText: true,
-                textController: controller.confirmPasswordController,
-                hintText: 'Confirm password',
-                prefixIcon: const Icon(Icons.lock),
-              ),
-              const SizedBox(height: 15),
-              SizedBox(
-                width: Get.width,
-                height: Get.height * 0.06,
-                child: CustomButton(
-                  title: 'Sign Up',
-                  action: () {
-                    controller.onSignUpButtonClicked();
-                  },
+          child: Form(
+            key: controller.formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomTextFeild(
+                  textController: controller.usernameController,
+                  hintText: 'Username',
+                  prefixIcon: const Icon(Icons.lock),
+                  validateMessage: "username can't be empty",
                 ),
-              ),
-              const SizedBox(height: 5.0),
-            ],
+                const SizedBox(height: 15),
+                CustomTextFeild(
+                  textController: controller.emailController,
+                  hintText: 'Email',
+                  prefixIcon: const Icon(Icons.email),
+                  validateMessage: "email can't be empty",
+                ),
+                const SizedBox(height: 15),
+                CustomTextFeild(
+                  obscureText: true,
+                  textController: controller.passwordController,
+                  hintText: 'Password',
+                  prefixIcon: const Icon(Icons.lock),
+                  validateMessage: "",
+                ),
+                const SizedBox(height: 15),
+                CustomTextFeild(
+                  obscureText: true,
+                  textController: controller.confirmPasswordController,
+                  hintText: 'Confirm password',
+                  prefixIcon: const Icon(Icons.lock),
+                  validateMessage: '',
+                ),
+                const SizedBox(height: 15),
+                SizedBox(
+                  width: Get.width,
+                  height: Get.height * 0.06,
+                  child: CustomButton(
+                    title: 'Sign Up',
+                    action: () {
+                      controller.onSignUpButtonClicked();
+                    },
+                  ),
+                ),
+                const SizedBox(height: 5.0),
+              ],
+            ),
           ),
         ),
       ),

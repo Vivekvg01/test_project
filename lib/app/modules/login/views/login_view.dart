@@ -20,6 +20,7 @@ class LoginView extends GetView<LoginController> {
                 textController: controller.emailController,
                 hintText: 'email',
                 prefixIcon: const Icon(Icons.email),
+                validateMessage: "email can't be empty",
               ),
               const SizedBox(height: 15),
               CustomTextFeild(
@@ -27,6 +28,7 @@ class LoginView extends GetView<LoginController> {
                 hintText: 'password',
                 prefixIcon: const Icon(Icons.lock),
                 obscureText: true,
+                validateMessage: 'password requied',
               ),
               const SizedBox(height: 15),
               SizedBox(

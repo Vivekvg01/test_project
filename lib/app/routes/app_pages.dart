@@ -36,6 +36,7 @@ class AppPages {
       bindings: [
         LoginBinding(),
         SignupBinding(),
+        HomeBinding(),
       ],
     ),
     GetPage(
