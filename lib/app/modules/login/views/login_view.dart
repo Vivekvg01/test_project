@@ -23,16 +23,19 @@ class LoginView extends GetView<LoginController> {
               ),
               const SizedBox(height: 15),
               CustomTextFeild(
-                textController: controller.emailController,
+                textController: controller.passwordContoller,
                 hintText: 'password',
                 prefixIcon: const Icon(Icons.lock),
+                obscureText: true,
               ),
               const SizedBox(height: 15),
               SizedBox(
                 width: Get.width,
                 child: CustomButton(
                   title: 'Login',
-                  action: () {},
+                  action: () {
+                    controller.onLoginButtonClick();
+                  },
                 ),
               ),
               const SizedBox(height: 5.0),

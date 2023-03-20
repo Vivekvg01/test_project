@@ -19,6 +19,7 @@ class CustomTextFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText,
       controller: textController,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,

@@ -14,8 +14,9 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SIGNUP;
- 
+  // ignore: constant_identifier_names
+  static const INITIAL = Routes.ON_BOARDING;
+
   static final routes = [
     GetPage(
       name: _Paths.HOME,
@@ -23,19 +24,28 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.ON_BOARDING,
-      page: () => const OnBoardingView(),
-      binding: OnBoardingBinding(),
-    ),
+        name: _Paths.ON_BOARDING,
+        page: () => const OnBoardingView(),
+        bindings: [
+          OnBoardingBinding(),
+          LoginBinding(),
+        ]),
     GetPage(
       name: _Paths.LOGIN,
       page: () => const LoginView(),
-      binding: LoginBinding(),
+      bindings: [
+        LoginBinding(),
+        SignupBinding(),
+      ],
     ),
     GetPage(
       name: _Paths.SIGNUP,
       page: () => const SignupView(),
-      binding: SignupBinding(),
+      bindings: [
+        SignupBinding(),
+        LoginBinding(),
+        HomeBinding(),
+      ],
     ),
   ];
 }

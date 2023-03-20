@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_project/app/common_widgets/custom_textfeild.dart';
+import 'package:test_project/app/modules/home/views/home_view.dart';
 import '../../../common_widgets/custom_button.dart';
 import '../controllers/signup_controller.dart';
 
@@ -22,19 +23,21 @@ class SignupView extends GetView<SignupController> {
               ),
               const SizedBox(height: 15),
               CustomTextFeild(
-                textController: controller.passwordController,
+                textController: controller.emailController,
                 hintText: 'Email',
                 prefixIcon: const Icon(Icons.email),
               ),
               const SizedBox(height: 15),
               CustomTextFeild(
+                obscureText: true,
                 textController: controller.passwordController,
                 hintText: 'Password',
                 prefixIcon: const Icon(Icons.lock),
               ),
               const SizedBox(height: 15),
               CustomTextFeild(
-                textController: controller.passwordController,
+                obscureText: true,
+                textController: controller.confirmPasswordController,
                 hintText: 'Confirm password',
                 prefixIcon: const Icon(Icons.lock),
               ),
@@ -44,7 +47,9 @@ class SignupView extends GetView<SignupController> {
                 height: Get.height * 0.06,
                 child: CustomButton(
                   title: 'Sign Up',
-                  action: () {},
+                  action: () {
+                    controller.onSignUpButtonClicked();
+                  },
                 ),
               ),
               const SizedBox(height: 5.0),
